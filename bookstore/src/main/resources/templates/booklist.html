@@ -6,11 +6,13 @@
 <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
 	th:href="@{css/bootstrap.min.css}" />
 </head>
-<body>
-	<h1>Book list</h1>
+<body class="font-weight-normal font-italic p-3 mb-2 bg-dark text-light">
+
+	<h2>Book list</h2>
 
 	<div>
-		<table class="table table-striped">
+		<table class="rounded table table-dark table-sm">
+
 
 			<tr>
 				<th>Author</th>
@@ -22,6 +24,8 @@
 
 			</tr>
 
+
+
 			<tr th:each="book : ${books}">
 
 				<td th:text="${book.author}"></td>
@@ -30,16 +34,21 @@
 				<td th:text="${book.year}"></td>
 				<td th:text="${book.price}"></td>
 				<td th:text="${book.category.name}"></td>
-				<td><a class="btn btn-danger"
+				<td><a class="btn btn-outline-danger"
 					th:href="@{/delete/{id}(id=${book.id})}">Delete</a></td>
-				<td><a class="btn btn-success"
-					th:href="@{/edit/{id}(id=${book.id})}">Edit</a></td>
+				<td><a class="btn btn-outline-success"
+					th:href="@{/editbook/{id}(id=${book.id})}">Edit</a></td>
+				<td><a class="btn btn-outline-warning"
+					th:href="@{/book/{id}(id=${book.id})}">JSON</a></td>
+
 			</tr>
 
 
 
 		</table>
-		<a class="btn btn-success" href="/add">Add book</a>
+		<a class="btn btn-outline-warning" href="/books">Book list in JSON</a>
+		<a class="btn btn-outline-success" href="/add">Add book</a>
 	</div>
+
 </body>
 </html>

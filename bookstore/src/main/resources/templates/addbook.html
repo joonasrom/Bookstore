@@ -5,23 +5,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" /></head>
 </head>
-<body>
-	<h1>Add book</h1>
+<body class="font-weight-normal font-italic p-3 mb-2 bg-dark text-light">
+	<h2>Add book</h2>
 <br>
 	<div class="container-fluid">
 
 		<form th:object="${book}" th:action="@{save}" action="#" method="post">
 
-			<label for="exampleInputTitle">Enter title </label><input type="text" id="title" th:field="*{title}" /> <br>
-			<label for="exampleInputAuthor">Enter author </label><input type="text" id="author" th:field="*{author}" /> <br>
-			<label for="exampleInputYear">Enter publishing year </label><input type="text" id="year" th:field="*{year}" /> <br>
-			<label for="exampleInputIsbn">Enter ISBN </label><input type="text" id="isbn" th:field="*{isbn}" /> <br>
-			<label for="exampleInputPrice">Enter price </label><input type="text" id="price" th:field="*{price}" /> <br><br>
-			<label for="exampleInputCategory">Choose category </label><select id="catlist" th:field="*{category}" class="form-control form-control-sm">
+			<label for="exampleInputTitle">Enter title: </label><input type="text" id="title" th:field="*{title}" /> <br>
+			<label for="exampleInputAuthor">Enter author: </label><input type="text" id="author" th:field="*{author}" /> <br>
+			<label for="exampleInputYear">Enter publishing year: </label><input type="text" id="year" th:field="*{year}" /> <br>
+			<label for="exampleInputIsbn">Enter ISBN: </label><input type="text" id="isbn" th:field="*{isbn}" /> <br>
+			<label for="exampleInputPrice">Enter price: </label><input type="text" id="price" th:field="*{price}" /> <br><br>
+			<label for="exampleInputCategory">Choose category: </label><select id="catlist" th:field="*{category}" class="form-control form-control-sm">
        			<option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}"></option>
     		</select>
     		<br>
-			<input class="btn btn-success" type="submit" value="Save"></input>
+			<input class="btn btn-outline-success" type="submit" value="Save"></input>
 			</form>
 
 	</div>
