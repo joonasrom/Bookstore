@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -34,7 +36,8 @@ public class Category {
 	public void setBooks(List<Book> books) {
 		this.books = books;
 	}
-
+	
+	@JsonBackReference
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
 	private List<Book> books;
 
