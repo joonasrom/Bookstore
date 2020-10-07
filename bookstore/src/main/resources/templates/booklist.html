@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <title>Book list</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -8,8 +8,17 @@
 </head>
 <body class="font-weight-normal font-italic p-3 mb-2 bg-dark text-light">
 
-	<h2>Book list</h2>
+	
+	<div class="col-md-4">
+	<h2> Book list</h2>
+		<h3 th:inline="text">Account-> [[${#httpServletRequest.remoteUser}]]</h3>
+	</div>
 
+<div class="col-md-4" style="padding:20px 0">
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-outline-danger"/>
+		</form>
+		</div>
 	<div>
 		<table class="rounded table table-dark table-sm">
 
@@ -34,8 +43,7 @@
 				<td th:text="${book.year}"></td>
 				<td th:text="${book.price}"></td>
 				<td th:text="${book.category.name}"></td>
-				<td><a class="btn btn-outline-danger"
-					th:href="@{/delete/{id}(id=${book.id})}">Delete</a></td>
+				<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-xs btn-danger">Delete</a></td>
 				<td><a class="btn btn-outline-success"
 					th:href="@{/editbook/{id}(id=${book.id})}">Edit</a></td>
 				<td><a class="btn btn-outline-warning"
