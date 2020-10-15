@@ -26,7 +26,7 @@ public class BookstoreApplication {
 
 			Category c1 = new Category("Fantasy");
 			Category c2 = new Category("Horror");
-			Category c3 = new Category("Crime");
+			Category c3 = new Category("Novel");
 			Category c4 = new Category("Humor");
 
 			crepository.save(c1);
